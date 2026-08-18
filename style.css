@@ -26,6 +26,7 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 0.75rem;
     background-color: #000000;
     color: #ffffff;
     padding: 1rem;
@@ -33,6 +34,14 @@ header {
 
 header nav a {
     color: #ffffff;
+}
+
+header button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #ffffff;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
 }
 
 main {
@@ -61,15 +70,87 @@ section {
     padding: 1rem;
 }
 
-#contacto label {
-    display: block;
+.filtro-canciones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 1rem;
+    max-width: 400px;
+}
+
+.sin-resultados {
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+#lista-canciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.item-cancion {
+    border: 1px solid #000000;
+    padding: 1rem;
+}
+
+.item-cancion h3 {
+    margin-top: 0;
+}
+
+.btn-eliminar {
+    margin-top: 0.5rem;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 0.35rem 0.75rem;
+    cursor: pointer;
+}
+
+#form-agregar-cancion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    max-width: 400px;
     margin-top: 0.75rem;
 }
 
-#contacto input,
-#contacto textarea {
+form label {
+    display: block;
+    margin-top: 0.75rem;
+    font-weight: bold;
+}
+
+form input,
+form textarea {
     width: 100%;
     padding: 0.5rem;
+    border: 1px solid #000000;
+}
+
+form button {
+    margin-top: 1rem;
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+}
+
+.error-message {
+    display: block;
+    font-weight: bold;
+    color: #b30000;
+}
+
+.error-message:empty {
+    display: none;
+}
+
+.confirmacion {
+    font-weight: bold;
+    margin-top: 1rem;
 }
 
 footer {
@@ -81,4 +162,31 @@ footer {
 
 footer a {
     color: #ffffff;
+}
+
+body.modo-oscuro {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.modo-oscuro #proyectos article,
+body.modo-oscuro .item-cancion,
+body.modo-oscuro form input,
+body.modo-oscuro form textarea {
+    border-color: #ffffff;
+}
+
+body.modo-oscuro .btn-eliminar {
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+body.modo-oscuro form button {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.modo-oscuro .error-message {
+    color: #ff6b6b;
 }

@@ -19,8 +19,14 @@
             ·
             <a href="#proyectos">Proyectos</a>
             ·
+            <a href="#canciones">Canciones</a>
+            ·
             <a href="#contacto">Contacto</a>
         </nav>
+
+        <button id="toggle-modo" type="button" aria-pressed="false">
+            Modo oscuro
+        </button>
     </header>
 
     <main>
@@ -94,26 +100,57 @@
             </article>
         </section>
 
+
         <section id="canciones">
             <h2>Canciones que toco</h2>
 
+            <div class="filtro-canciones">
+                <label for="filtro-texto">Buscar por título, artista o género</label>
+                <input type="text" id="filtro-texto" name="filtro-texto">
+            </div>
+
+            <p id="sin-resultados" class="sin-resultados" hidden>
+                No se encontraron canciones con ese criterio.
+            </p>
+
             <div id="lista-canciones"></div>
+
+            <h3>Agregar una canción</h3>
+
+            <form id="form-agregar-cancion">
+                <label for="nueva-titulo">Título</label>
+                <input type="text" id="nueva-titulo" name="titulo" required>
+
+                <label for="nueva-artista">Artista</label>
+                <input type="text" id="nueva-artista" name="artista" required>
+
+                <label for="nueva-genero">Género</label>
+                <input type="text" id="nueva-genero" name="genero" required>
+
+                <button type="submit">Agregar canción</button>
+            </form>
         </section>
-        
+
+
         <section id="contacto">
             <h2>Contacto</h2>
 
-            <form>
+            <form id="form-contacto" novalidate>
                 <label for="name">Nombre</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" aria-describedby="error-name">
+                <span id="error-name" class="error-message" aria-live="polite"></span>
 
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" aria-describedby="error-email">
+                <span id="error-email" class="error-message" aria-live="polite"></span>
 
                 <label for="message">Mensaje</label>
-                <textarea id="message" name="message"></textarea>
+                <textarea id="message" name="message" aria-describedby="error-message-field"></textarea>
+                <span id="error-message-field" class="error-message" aria-live="polite"></span>
 
                 <button type="submit">Enviar</button>
+
+                <p id="confirmacion-contacto" class="confirmacion" role="status"></p>
             </form>
         </section>
 
@@ -136,7 +173,7 @@
         </nav>
     </footer>
 
-<script src="script.js" defer></script>
+    <script src="script.js" defer></script>
 
 </body>
 </html>
